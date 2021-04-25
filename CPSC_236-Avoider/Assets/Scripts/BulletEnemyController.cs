@@ -16,17 +16,16 @@ public class BulletEnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(moveSpeed, moveSpeed);
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         // relative poistion of the target (player) based upon the current position
         relativePosition = new Vector2(
             player.GetComponent<Rigidbody2D>().position.x - gameObject.transform.position.x,
             player.GetComponent<Rigidbody2D>().position.y - gameObject.transform.position.y);
 
+    }
+    // Update is called once per frame
+    void Update()
+    {
         // destroys rocket once it gets out of camera viewport
         if (Camera.main.WorldToViewportPoint(transform.position).y < 0)
         {
@@ -36,8 +35,11 @@ public class BulletEnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-        StartCoroutine("DestroySelf");
+        if(this != null)
+        {
+            Move();
+            StartCoroutine("DestroySelf");
+        }
     }
 
     // logic handling bullet-enemy collisions

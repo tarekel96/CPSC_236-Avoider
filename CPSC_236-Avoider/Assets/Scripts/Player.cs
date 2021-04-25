@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement; // SceneManager.LoadScene()
 
 public class Player : MonoBehaviour
 {
@@ -26,25 +26,27 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-        // set the mouse position
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if(this != null)
         {
-            clickCounter++;
-            clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-        if(clickCounter == 1 && coroutineAllowed)
-        {
-            moveSpeed = 7.5f;
-            firstClickTime = Time.time;
-            StartCoroutine(DoubleClickDetection());
-        }
+            // set the mouse position
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                clickCounter++;
+                clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+            if (clickCounter == 1 && coroutineAllowed)
+            {
+                moveSpeed = 7.5f;
+                firstClickTime = Time.time;
+                StartCoroutine(DoubleClickDetection());
+            }
 
 
-        // relative poistion of the target based upon the current position
-        relativePosition = new Vector2(
-            clickedPosition.x - gameObject.transform.position.x,
-            clickedPosition.y - gameObject.transform.position.y);
+            // relative poistion of the target based upon the current position
+            relativePosition = new Vector2(
+                clickedPosition.x - gameObject.transform.position.x,
+                clickedPosition.y - gameObject.transform.position.y);
+        }
     }
 
     private IEnumerator DoubleClickDetection()
@@ -95,6 +97,12 @@ public class Player : MonoBehaviour
         }
 
         rb.velocity = movement;
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Player Destroyed");
+        SceneManager.LoadScene("SampleScene");
     }
 
 }
