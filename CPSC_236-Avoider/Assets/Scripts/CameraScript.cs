@@ -9,7 +9,6 @@ public class CameraScript : MonoBehaviour
     private float smoothSpeed = 0.5f;
     public GameObject cameraLeftBorder;
     public GameObject cameraRightBorder;
-    public Player player;
 
     private float cameraHalfWidth;
 

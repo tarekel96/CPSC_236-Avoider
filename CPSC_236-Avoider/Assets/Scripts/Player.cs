@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     private float firstClickTime, timeBetweenClicks;
     private bool coroutineAllowed;
     private int clickCounter;
-    private bool doubleClick = false;
 
     private void Start()
     {
@@ -57,12 +56,10 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Double Click");
                 moveSpeed = 15f;
-                doubleClick = true;
                 yield return new WaitForSeconds(1.5f); // give player 1.5x speed for 1.5 seconds
             }
             else
             {
-                doubleClick = false;
                 yield return new WaitForEndOfFrame();
             }
             
