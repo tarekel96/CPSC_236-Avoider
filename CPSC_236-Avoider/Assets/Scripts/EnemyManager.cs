@@ -8,8 +8,9 @@ public class EnemyManager : MonoBehaviour
     private float maxTimer; // when timer reaches maxTimer, spawn a new enemy
     public GameObject enemy;
 
-    public float timerMin = 1f;
-    public float timerMax = 3f;
+    public float timerMin = 5f;
+    public float timerMax = 10f;
+    private bool calculatedRange = false;
     private int enemyCounter = 0;
     private int MAX_NUM_OF_ENEMIES = 5;
 
@@ -17,18 +18,23 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         timer = 0;
-        maxTimer = Random.Range(timerMin, timerMax);
+        maxTimer = Random.Range(0f, 1.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!calculatedRange)
+        {
+            maxTimer = Random.Range(timerMin, timerMax);
+            calculatedRange = true;
+        }
         StartCoroutine("SpawnEnemyTimer");
     }
 
     void SpawnEnemy()
     {
-        float y = 1.25f;
+        float y = 0.5f;
         Vector3 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0, 1f), y, 0));
         spawnPoint.z = 0;
         // adjust x-axis position

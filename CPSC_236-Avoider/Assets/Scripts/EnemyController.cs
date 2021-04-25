@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
 
     // vars for enemy movement
     private Vector2 relativePosition;
-    private float moveSpeed = 1.75f;
+    private float moveSpeed = 1.4f;
     private Vector2 enemyMovement;
     private float enemyDetectionRadius = 5f;
     // vars for rand enemy movement
@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
                 player.GetComponent<Rigidbody2D>().position.y - gameObject.transform.position.y);
         }
 
-        if(relativePosition.x < enemyDetectionRadius && relativePosition.y < enemyDetectionRadius)
+        if(this != null && relativePosition.x < enemyDetectionRadius && relativePosition.y < enemyDetectionRadius)
         {
             canFireBullets = true;
         }
@@ -73,7 +73,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (canFireBullets && (numOfBullets < MAX_NUM_OF_BULLETS))
+        if (this != null && canFireBullets && (numOfBullets < MAX_NUM_OF_BULLETS))
         {
             StartCoroutine("FireBullet");
         }
@@ -93,6 +93,16 @@ public class EnemyController : MonoBehaviour
         else if(player != null && !canFireBullets)
         {
             RandomMove();
+        }
+    }
+
+    // logic handling enemy collisions
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(collision.gameObject);
         }
     }
 

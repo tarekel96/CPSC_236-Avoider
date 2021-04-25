@@ -7,7 +7,7 @@ public class BulletEnemyController : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject player;
     private Vector2 relativePosition;
-    private float moveSpeed = 1.25f;
+    private float moveSpeed = 3f;
     private Vector2 enemyBulletMovement;
 
     // Start is called before the first frame update

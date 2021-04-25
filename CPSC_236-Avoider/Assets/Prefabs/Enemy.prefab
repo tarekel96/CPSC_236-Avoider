@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8662003875204063218}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee495c543933435fb053ce316796c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 576117006716599252, guid: dab47529931f0416887bd6f62958ffdc, type: 3}
   timerMin: 5
   timerMax: 25
-  canFireBullets: 1
   player: {fileID: 0}
+  canFireBullets: 1
+  bullet: {fileID: 576117006716599252, guid: dab47529931f0416887bd6f62958ffdc, type: 3}
