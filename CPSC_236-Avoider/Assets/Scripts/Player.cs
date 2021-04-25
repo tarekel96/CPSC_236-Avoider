@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
                 Debug.Log("Double Click");
                 moveSpeed = 15f;
                 doubleClick = true;
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(1.5f); // give player 1.5x speed for 1.5 seconds
             }
             else
             {
