@@ -8,8 +8,8 @@ public class EnemyManager : MonoBehaviour
     private float maxTimer; // when timer reaches maxTimer, spawn a new enemy
     public GameObject enemy;
 
-    public float timerMin = 5f;
-    public float timerMax = 25f;
+    public float timerMin = 2f;
+    public float timerMax = 5f;
     private int enemyCounter = 0;
     private int MAX_NUM_OF_ENEMIES = 5;
 
