@@ -13,7 +13,7 @@ public class BulletEnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(moveSpeed, moveSpeed);
         

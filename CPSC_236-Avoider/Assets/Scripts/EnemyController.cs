@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     public float timerMax = 25f;
     public bool canFireBullets = true;
 
-    public Rigidbody2D player;
+    public GameObject player;
     private Vector2 relativePosition;
     private float moveSpeed = 1.75f;
     private Vector2 enemyMovement;
@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(moveSpeed, moveSpeed);
 
@@ -36,8 +37,8 @@ public class EnemyController : MonoBehaviour
     {
         // relative poistion of the target (player) based upon the current position
         relativePosition = new Vector2(
-            player.position.x - gameObject.transform.position.x,
-            player.position.y - gameObject.transform.position.y);
+            player.GetComponent<Rigidbody2D>().position.x - gameObject.transform.position.x,
+            player.GetComponent<Rigidbody2D>().position.y - gameObject.transform.position.y);
 
         if (canFireBullets && (numOfBullets < MAX_NUM_OF_BULLETS))
         {
