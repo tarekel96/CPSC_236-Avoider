@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
         {
             if(clickCounter == 2)
             {
-                Debug.Log("Double Click");
                 moveSpeed = 15f;
                 yield return new WaitForSeconds(1.5f); // give player 1.5x speed for 1.5 seconds
             }
@@ -101,7 +100,6 @@ public class Player : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("Player Destroyed");
         SceneManager.LoadScene("SampleScene");
     }
 

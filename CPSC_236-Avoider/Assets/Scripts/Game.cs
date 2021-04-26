@@ -22,20 +22,18 @@ public class Game : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Menu");
-        }
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
-        if (player.GetComponent<BoxCollider2D>().IsTouching(coinKey.GetComponent<BoxCollider2D>()))
+        if(player != null)
         {
-            DestroyGameObjects(enemies);
-            DestroyGameObjects(enemyBullets);
-            Debug.Log("Player has won the game");
-            resetGame = true;
-            RestartScene();
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+            if (player.GetComponent<BoxCollider2D>().IsTouching(coinKey.GetComponent<BoxCollider2D>()))
+            {
+                DestroyGameObjects(enemies);
+                DestroyGameObjects(enemyBullets);
+                resetGame = true;
+                RestartScene();
+            }
         }
     }
     void DestroyGameObjects(GameObject[] gameObjects)
