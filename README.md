@@ -22,8 +22,10 @@
 ## Instructions to run the program:
 - Clone the repo
 - Open the repo with Unity Hub / Unity
-- *IMPORTANT*: Open the Sample Scene (otherwise it will look like the project is empty and has no game objects)
-- Press Play on Unity and interact with the program
+- Press Play (from Unity editor) and the Menu Scene should be loaded
+- Press Play (on Unity Menu scene) and user is re-directed to the 2D Top Down POV game
+- Click where want the character to move to and double click to dash (explained above)
+- Try to get the golden coin at the right side of the map, but avoid the enemies and their projectiles in the process.
 
 ## Source Files:
 - Scripts:
@@ -35,7 +37,7 @@
   - EnemyManager.cs
   - EnemyController.cs
   - BulletEnemyController.cs		
-  - Coin.cs					
+  - Coin.cs (extra file I forgot to delete)					
 
 ## Sources referred to:
 - Tiny RPG Forest Tilemap: https://assetstore.unity.com/packages/2d/characters/tiny-rpg-forest-114685
