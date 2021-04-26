@@ -19,6 +19,7 @@ public class EnemyManager : MonoBehaviour
     {
         timer = 0;
         maxTimer = Random.Range(0f, 1.5f);
+        StartCoroutine("SpawnEnemyTimer");
     }
 
     // Update is called once per frame
