@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class ButtonQuitIngame : MonoBehaviour
 {
 
-    public void HandleClick()
-    {
-        Application.Quit();
-        Debug.Log("Quit the Game");
-        SceneManager.LoadScene(0);
-    }
+    //public void HandleClick()
+    //{
+    //    Application.Quit();
+    //    Debug.Log("Quit the Game");
+    //    SceneManager.LoadScene(0);
+    //}
 
 }

@@ -4590,8 +4590,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1579889020}
-        m_MethodName: HandleClick
+      - m_Target: {fileID: 1670221544}
+        m_MethodName: setQuitTrue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4682,6 +4682,7 @@ MonoBehaviour:
   player: {fileID: 452010308}
   coinKey: {fileID: 430181093}
   resetGame: 0
+  quitGame: 0
 --- !u!4 &1670221545
 Transform:
   m_ObjectHideFlags: 0
